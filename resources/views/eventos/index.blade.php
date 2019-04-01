@@ -28,7 +28,7 @@
 
            
             <div class="box-body">
-              <table class="table table-bordered">
+              <table class="table table-bordered table-hover">
                 <tbody>
                 <tr>
                   <th style="width: 10px">Numero</th>
@@ -47,12 +47,13 @@
                   <td>
                   <img src="{{asset('storage').'/'.$evento->logo}}" alt="" width="100">
                   </td>
-                  <td><button class="btn btn-block btn-warnig"><a href="{{url('/eventos/'.$evento->id.'/edit')}}">Editar</a>  </button>
+                  <td>
+                  <a href="{{url('/eventos/'.$evento->id.'/edit')}}" class="btn btn-warning" role="button"><i class="fa fa-pencil"></i> Editar</a>
                 
-                  <form method="post" action="{{url('/eventos/'.$evento->id)}}">
+                  <form method="post" action="{{url('/eventos/'.$evento->id)}}" style="display:inline">
                   {{csrf_field()}}
                   {{method_field('DELETE')}}
-                  <button class="btn btn-block btn-danger" type='submit' onclick="return confirm('Desea Borrar el evento?');">Borrar</button>   
+                  <button class="btn btn-danger" type='submit' onclick="return confirm('Desea Borrar el evento?');"><i class="fa fa-trash"></i> Borrar</button>   
                   </td>
                 </tr>
                 @endforeach
